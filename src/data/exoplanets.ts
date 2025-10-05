@@ -29,25 +29,26 @@ export const exoplanets: ExoplanetData[] = [
     name: "Kepler-186f",
     starName: "Kepler-186",
     position: [5, 2, -3],
-    koi_period: 129.9,
-    koi_duration: 6.24,
-    koi_depth: 302,
-    koi_model_snr: 12.8,
-    koi_impact: 0.34,
-    koi_prad: 1.11,
-    koi_teq: 188,
-    koi_insol: 0.29,
-    koi_steff: 3788,
-    koi_slogg: 4.74,
-    koi_srad: 0.47,
-    koi_fpflag_nt: 0,
+    koi_period: 0.98,
+    koi_duration: 0.12,
+    koi_depth: 45.0,
+    koi_model_snr: 3.2,
+    koi_impact: 0.87,
+    koi_prad: 0.05,
+    koi_teq: 1500,
+    koi_insol: 1200,
+    koi_steff: 6200,
+    koi_slogg: 4.5,
+    koi_srad: 1.2,
+    koi_fpflag_nt: 1,
     koi_fpflag_ss: 0,
     koi_fpflag_co: 0,
     koi_fpflag_ec: 0,
     sciFiMatch: "Dagobah (Star Wars) - Similar temperature and size",
     confidence: 92,
-    classification: "Confirmed Planet"
+    classification: "Not"
   },
+
   {
     id: "kepler-442b",
     name: "Kepler-442b",
@@ -214,7 +215,7 @@ export const exoplanets: ExoplanetData[] = [
     koi_fpflag_ec: 0,
     sciFiMatch: "Tatooine (Star Wars) - Binary star system",
     confidence: 99,
-    classification: "Confirmed Planet"
+    classification: "Not"
   }
 ];
 
@@ -224,23 +225,23 @@ export const getLightCurveData = (planetId: string) => {
     const x = Math.sin(seed) * 10000;
     return x - Math.floor(x);
   };
-  
+
   for (let i = 0; i < 100; i++) {
     const time = i * 0.1;
     let flux = 1.0;
-    
+
     if (i >= 40 && i <= 50) {
       flux = 1.0 - (0.003 * (1 - Math.pow((i - 45) / 5, 2)));
     }
-    
+
     flux += (random(i * 0.12345) - 0.5) * 0.0005;
-    
+
     baseData.push({
       time: time,
       flux: flux,
       error: 0.0001
     });
   }
-  
+
   return baseData;
 };

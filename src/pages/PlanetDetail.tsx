@@ -134,11 +134,19 @@ const PlanetDetail = () => {
             </Button>
 
             {predictionResult && (
-              <Card className="glass-card p-4 mt-4 bg-blue-50">
-                <h3 className="font-semibold text-lg">Prediction Result</h3>
-                <p className="text-xl mt-2">{predictionResult}</p>
-              </Card>
-            )}
+  <Card className="glass-card p-4 mt-4">
+    <h3 className="font-semibold text-lg">Prediction Result</h3>
+    <p
+      className={`text-xl mt-2 font-bold ${
+        predictionResult.toLowerCase().includes("planet")
+          ? "text-green-600"
+          : "text-red-600"
+      }`}
+    >
+      {predictionResult}
+    </p>
+  </Card>
+)}
 
             <ComparisonDrawer currentPlanet={planet} />
 
