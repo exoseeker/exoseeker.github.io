@@ -61,7 +61,7 @@ const PlanetDetail = () => {
       };
 
       const res = await fetch(
-        "https://fastapi-ml-service-bfub.onrender.com/predict",
+        "https://fastapi-ml-service-4b3s.onrender.com/predict",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
